@@ -126,17 +126,17 @@
       text-align: center;
       color: var(--foreground);
     }
-  .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('logo-translucido.png') no-repeat center center;
-  background-size: 50%;
-  opacity: 0.40;       /* 40% opaco, 60% transparente */
-  filter: blur(2px);
-  pointer-events: none;
-  z-index: 1;
-}
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('logo-translucido.png') no-repeat center center;
+      background-size: 50%;
+      opacity: 0.40;       /* 40% opaco */
+      filter: blur(2px);
+      pointer-events: none;
+      z-index: 1;
+    }
     .hero-content {
       position: relative;
       z-index: 2;
@@ -263,7 +263,7 @@
       opacity: .9;
     }
 
-    /* Comunidad */
+    /* Comunidad (mapa actualizado) */
     .community {
       background: var(--muted);
       padding: 4rem 2rem;
@@ -272,25 +272,21 @@
       margin: 3rem 2rem;
       text-align: center;
     }
+    .community h2 {
+      color: var(--foreground);
+    }
+    .community p {
+      margin-bottom: 2rem;
+    }
     .social-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 2rem auto 0;
+      display: flex;
+      justify-content: center;
     }
-    .instagram-frame {
-      border: 2px solid var(--accent);
+    .social-grid iframe {
+      width: 600px;
+      height: 450px;
+      border:0;
       border-radius: var(--radius);
-      width: 100%;
-      height: 300px;
-      background: rgba(0,220,255,0.05);
-      transition: all .3s;
-    }
-    .instagram-frame:hover {
-      border-color: var(--primary);
-      box-shadow: 0 10px 30px rgba(0,220,255,0.2);
-      transform: translateY(-5px);
     }
 
     /* Ubicación & Contacto */
@@ -361,7 +357,7 @@
       .hero-content p { font-size:1.2rem; }
       .section { padding:3rem 1rem; }
       .section h2 { font-size:2rem; }
-      .social-grid { grid-template-columns:1fr; }
+      .social-grid iframe { width:100%; height:auto; }
     }
 
     /* Animaciones & scrollbar */
@@ -384,7 +380,7 @@
       <div class="logo-container">
         <div class="logo">
           <img src="logo-icarus.png" alt="Logo ICARUS" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-          <div class="logo-fallback" style="display:none;">I</div>
+          <div class="logo-fallback">I</div>
         </div>
         <div class="brand-name">ICARUS BOX</div>
       </div>
@@ -459,14 +455,17 @@
       <h2>Nuestra Comunidad</h2>
       <p>Somos más que un gimnasio, somos una familia comprometida con la excelencia y el crecimiento personal.</p>
       <div class="social-grid">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d836.103084800095!2d-71.60675443037094!3d-33.04560957418357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e0c51bd1a8e9%3A0x4fe39dabca2ffaec!2sYungay%202882%2C%202340000%20Valpara%C3%ADso!5e0!3m2!1ses!2scl!4v1752872942334!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- Mapa actualizado -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d836.103084800095!2d-71.60675443037094!3d-33.04560957418357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e0c51bd1a8e9%3A0x4fe39dabca2ffaec!2sYungay%202882%2C%202340000%20Valpara%C3%ADso!5e0!3m2!1ses!2scl!4v1752872942334!5m2!1ses!2scl"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
     </section>
 
     <!-- Ubicación & Contacto -->
     <section id="contacto" class="contact">
-      <h2>Ubicación</h2>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d209.02547918192366!2d-71.60620427361768!3d-33.04573261746202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2scl!4v1752872842108!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <h2>Contacto</h2>
       <div class="contact-grid">
         <div class="contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/569XXXXXXXX">+56 9 XXXXXXXX</a></div>
         <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:contacto@icarusbox.cl">contacto@icarusbox.cl</a></div>
@@ -502,7 +501,7 @@
         if(e.isIntersecting) e.target.style.animation='fadeInUp .6s ease-out forwards';
       });
     },{ threshold:0.1, rootMargin:'0px 0px -50px 0px' });
-    document.querySelectorAll('.about-card,.program-card,.contact-item').forEach(el=>obs.observe(el));
+...
   </script>
 </body>
 </html>
