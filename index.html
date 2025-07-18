@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ICARUS BOX – CrossTraining & Comunidad</title>
 
-  <!-- Configuración Tailwind extendida -->
   <script>
     tailwind.config = {
       theme: {
@@ -14,13 +13,10 @@
             background: 'hsl(var(--background))',
             foreground: 'hsl(var(--foreground))',
             primary: 'hsl(var(--primary))',
-            'primary-foreground': 'hsl(var(--primary-foreground))',
             muted: 'hsl(var(--muted))',
-            accent: 'hsl(var(--accent))',
+            accent: 'hsl(var(--accent))'
           },
-          borderRadius: {
-            xl: 'var(--radius)'
-          }
+          borderRadius: { xl: 'var(--radius)' }
         }
       }
     }
@@ -28,27 +24,44 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="style.css" rel="stylesheet">
 </head>
-
-<body class="bg-background text-foreground font-sans min-h-screen flex flex-col">
+<body class="flex flex-col min-h-screen font-sans">
   <!-- HEADER -->
-  <header class="bg-black text-white p-4 shadow-md">
+  <header class="p-4 shadow-md">
     <div class="container mx-auto flex justify-between items-center">
       <div class="flex items-center space-x-4">
         <img src="logo-icarus.png" alt="Logo ICARUS" class="h-12 w-auto">
-        <span class="text-xl font-bold">ICARUS BOX</span>
+        <span class="text-2xl font-bold">ICARUS BOX</span>
       </div>
-      <a href="https://wa.me/569XXXXXXXX" class="bg-primary text-white px-4 py-2 rounded-xl font-semibold hover:bg-accent">Clase de prueba gratis</a>
+      <a href="https://wa.me/569XXXXXXXX" class="bg-primary text-white px-4 py-2 rounded-xl font-semibold hover:bg-accent">
+        Clase de prueba gratis
+      </a>
     </div>
   </header>
 
-  <!-- CONTENIDO -->
-  <main class="container mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold mb-4 text-primary">Eleva tu potencial. Comienza tu vuelo.</h1>
-    <p class="text-lg text-muted">En Valparaíso. Comunidad. Fuerza. Cambio real.</p>
+  <main class="container mx-auto px-4 py-8 flex-1">
+    <!-- HERO -->
+    <section class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-primary">Eleva tu potencial. Comienza tu vuelo.</h1>
+      <p class="mt-4 text-lg text-muted">CrossTraining & Comunidad en Valparaíso</p>
+    </section>
+
+    <!-- INSTAGRAM GRID -->
+    <section id="galeria" class="mb-12">
+      <h2 class="text-3xl font-semibold mb-4">Comunidad & WODs</h2>
+      <div class="post-grid">
+        <!-- Reemplaza REPLACE_ID con IDs reales de posts recientes -->
+        <iframe src="https://www.instagram.com/p/REPLACE_ID/embed" class="w-full h-64"></iframe>
+        <iframe src="https://www.instagram.com/p/REPLACE_ID/embed" class="w-full h-64"></iframe>
+        <iframe src="https://www.instagram.com/p/REPLACE_ID/embed" class="w-full h-64"></iframe>
+      </div>
+    </section>
+
+    <!-- Más secciones que ya tenías -->
+    <!-- ... -->
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-muted text-center text-sm text-foreground py-4 mt-auto">
+  <footer class="bg-muted text-center text-sm text-foreground py-4">
     © 2025 ICARUS BOX – Todos los derechos reservados
   </footer>
 </body>
