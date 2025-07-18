@@ -13,12 +13,16 @@
     --radius: 0.5rem;
   }
 
-  body {
+  body, header, footer {
     @apply bg-background text-foreground;
   }
 
   a:hover {
     @apply text-accent;
+  }
+
+  .post-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4;
   }
 
   iframe {
