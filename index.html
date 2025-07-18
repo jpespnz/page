@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICARUS BOX – CrossTraining & Comunidad</title>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            primary: 'hsl(var(--primary))',
+            muted: 'hsl(var(--muted))',
+            accent: 'hsl(var(--accent))',
+          },
+          borderRadius: {
+            xl: 'var(--radius)'
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body class="flex flex-col min-h-screen font-sans bg-background text-foreground">
+  <!-- Header -->
+  <header class="p-4 shadow-md bg-muted text-foreground">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-4">
+        <img src="logo-icarus.png" alt="Logo ICARUS" class="h-12 w-auto">
+        <span class="text-2xl font-bold">ICARUS BOX</span>
+      </div>
+      <a href="https://wa.me/569XXXXXXXX" class="bg-primary text-white px-4 py-2 rounded-xl font-semibold hover:bg-accent">
+        Clase de prueba gratis
+      </a>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-12 flex-1">
+    <!-- Hero -->
+    <section class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-primary">Eleva tu potencial. Comienza tu vuelo.</h1>
+      <p class="mt-4 text-lg text-muted">CrossTraining & Comunidad en Valparaíso</p>
+    </section>
+
+    <!-- Galería Instagram -->
+    <section id="galeria" class="mb-12">
+      <h2 class="text-3xl font-semibold mb-4">Comunidad & WODs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <iframe src="https://www.instagram.com/p/C7eqvn-LFo0/embed" class="w-full h-64"></iframe>
+        <iframe src="https://www.instagram.com/p/C7ZIk6-Lldl/embed" class="w-full h-64"></iframe>
+        <iframe src="https://www.instagram.com/p/C68hVPbLb5a/embed" class="w-full h-64"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-muted text-center text-sm text-foreground py-4">
+    © 2025 ICARUS BOX – Todos los derechos reservados
+  </footer>
+</body>
+</html>

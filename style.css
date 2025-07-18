@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 95%;
+    --primary: 184 100% 45%;
+    --muted: 0 0% 15%;
+    --accent: 184 100% 75%;
+    --radius: 0.5rem;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  iframe {
+    @apply border border-accent rounded-lg;
+  }
+
+  a:hover {
+    @apply text-accent;
+  }
+}
