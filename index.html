@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>ICARUS BOX – CrossTraining & Comunidad</title>
 
-  <!-- Tailwind + configuración de colores -->
+  <!-- Tailwind + config colores -->
   <script>
     tailwind.config = {
       theme: {
@@ -17,70 +17,66 @@
             muted: 'hsl(var(--muted))',
             accent: 'hsl(var(--accent))'
           },
-          borderRadius: {
-            xl: 'var(--radius)'
-          }
+          borderRadius: { xl: 'var(--radius)' }
         }
       }
     }
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="style.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet"/>
 </head>
+<body class="flex flex-col min-h-screen font-sans">
 
-<body class="flex flex-col min-h-screen font-sans bg-background text-foreground">
   <!-- HEADER -->
-  <header class="bg-background text-foreground p-4 shadow-md">
-    <div class="container mx-auto flex justify-between items-center">
-      <div class="flex items-center space-x-4">
-        <img src="logo-icarus.png" alt="Logo ICARUS" class="h-12 w-auto">
+  <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6">
+      <div class="flex items-center gap-4">
+        <img src="logo-icarus.png" alt="Logo ICARUS" class="h-10 w-auto"/>
         <span class="text-2xl font-bold">ICARUS BOX</span>
       </div>
-      <a href="https://wa.me/569XXXXXXXX"
-         class="bg-primary text-primary-foreground px-4 py-2 rounded-xl font-semibold hover:bg-accent">
-        Clase de prueba gratis
-      </a>
+      <nav class="space-x-6">
+        <a href="#programas" class="hover:text-accent">Programas</a>
+        <a href="#comunidad" class="hover:text-accent">Comunidad</a>
+        <a href="#ubicacion" class="hover:text-accent">Ubicación</a>
+        <a href="#contacto" class="btn-primary">Prueba Gratis</a>
+      </nav>
     </div>
   </header>
 
-  <main class="container mx-auto px-4 py-12 flex-1 space-y-16">
-    <!-- HERO -->
-    <section class="text-center">
-      <h1 class="text-4xl font-bold text-primary">Eleva tu potencial. Comienza tu vuelo.</h1>
-      <p class="mt-4 text-lg text-muted">CrossTraining & Comunidad en Valparaíso</p>
-    </section>
+  <!-- HERO -->
+  <section class="relative flex-1 bg-[url('hero-bg.jpg')] bg-cover bg-center">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="container mx-auto relative z-10 py-32 text-center text-foreground">
+      <h1 class="text-5xl font-bold mb-6">Eleva tu potencial<br/>Comienza tu vuelo</h1>
+      <p class="text-lg mb-8">CrossTraining & Comunidad en Valparaíso</p>
+      <a href="https://wa.me/569XXXXXXXX" class="btn-primary">Reservar Clase Gratuita</a>
+    </div>
+  </section>
 
-    <!-- QUIÉNES SOMOS -->
-    <section id="quienes-somos">
-      <h2 class="text-3xl font-semibold mb-4">Quiénes somos</h2>
-      <p>Somos tu comunidad de CrossTraining en Valparaíso. Coaches certificados te acompañan para superar tus límites.</p>
-    </section>
+  <main class="container mx-auto px-6 py-16 space-y-24">
 
-    <!-- UBICACIÓN -->
-    <section id="ubicacion">
-      <h2 class="text-3xl font-semibold mb-4">Ubicación</h2>
-      <p class="mb-4">📍 Yungay 2882, Piso 3, Valparaíso</p>
-      <div class="w-full h-64 overflow-hidden shadow-lg rounded-xl">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d441.8868752083775!2d-71.60636989777132!3d-33.04583898504788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e0c51bd1a8e9%3A0x4fe39dabca2ffaec!2sYungay%202882%2C%202340000%20Valpara%C3%ADso!5e0!3m2!1ses!2scl!4v1752868474749!5m2!1ses!2scl"
-          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+    <!-- PROGRAMAS DESTACADOS -->
+    <section id="programas">
+      <h2 class="text-3xl font-semibold text-center mb-8">Programas Destacados</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card text-center">
+          <h3 class="text-xl font-bold mb-2">WOD Diarios</h3>
+          <p>Rutinas diarias diseñadas para todos los niveles.</p>
+        </div>
+        <div class="card text-center">
+          <h3 class="text-xl font-bold mb-2">Entrenamiento Personal</h3>
+          <p>Sesiones uno a uno con nuestros coaches certificados.</p>
+        </div>
+        <div class="card text-center">
+          <h3 class="text-xl font-bold mb-2">Clases Grupales</h3>
+          <p>Comparte el esfuerzo en comunidad y motívate.</p>
+        </div>
       </div>
     </section>
 
-    <!-- HORARIOS -->
-    <section id="horarios">
-      <h2 class="text-3xl font-semibold mb-4">Horarios</h2>
-      <ul class="list-disc list-inside space-y-2 text-lg">
-        <li>Lunes a Viernes: 7:00 / 8:00 / 13:00 / 18:00 / 19:00</li>
-        <li>Sábados: 10:00 / 11:00</li>
-      </ul>
-    </section>
-
-    <!-- GALERÍA INSTAGRAM -->
-    <section id="galeria">
-      <h2 class="text-3xl font-semibold mb-4">Comunidad & WODs</h2>
+    <!-- COMUNIDAD INSTAGRAM -->
+    <section id="comunidad">
+      <h2 class="text-3xl font-semibold text-center mb-8">Nuestra Comunidad</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         <iframe src="https://www.instagram.com/p/DEqjjmlOArD/embed" class="w-full h-64"></iframe>
         <iframe src="https://www.instagram.com/reel/DLsHk6EuC6Y/embed" class="w-full h-64"></iframe>
@@ -88,18 +84,33 @@
       </div>
     </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto">
-      <h2 class="text-3xl font-semibold mb-4">Contacto</h2>
-      <p>📞 WhatsApp: <a href="https://wa.me/569XXXXXXXX" class="text-primary">569 XXXXXXXX</a></p>
-      <p>📧 Email: contacto@icarusbox.cl</p>
-      <p>📷 Instagram: <a href="https://www.instagram.com/cf.icarus/" class="text-primary">@cf.icarus</a></p>
+    <!-- UBICACIÓN -->
+    <section id="ubicacion">
+      <h2 class="text-3xl font-semibold text-center mb-8">Encuéntranos</h2>
+      <div class="flex flex-col md:flex-row items-center md:space-x-8">
+        <div class="md:w-1/2 mb-6 md:mb-0">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d441.8868752083775!2d-71.60636989777132!3d-33.04583898504788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e0c51bd1a8e9%3A0x4fe39dabca2ffaec!2sYungay%202882%2C%202340000%20Valpara%C3%ADso!5e0!3m2!1ses!2scl!4v1752868474749!5m2!1ses!2scl"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="md:w-1/2 text-center md:text-left">
+          <p class="mb-2">📍 Yungay 2882, Piso 3, Valparaíso</p>
+          <p class="mb-2">📞 <a href="https://wa.me/569XXXXXXXX" class="text-primary hover:text-accent">+56 9 XXXXXXXX</a></p>
+          <p>📧 <a href="mailto:contacto@icarusbox.cl" class="hover:text-accent">contacto@icarusbox.cl</a></p>
+        </div>
+      </div>
     </section>
+
   </main>
 
   <!-- FOOTER -->
-  <footer class="bg-background text-center text-sm text-foreground py-4">
-    © 2025 ICARUS BOX – Todos los derechos reservados
+  <footer class="py-6 text-center">
+    <p class="text-sm">© 2025 ICARUS BOX – Todos los derechos reservados</p>
+    <div class="mt-4 space-x-4">
+      <a href="https://www.instagram.com/cf.icarus/" class="hover:text-accent">@cf.icarus</a>
+      <a href="#contacto" class="hover:text-accent">Contacto</a>
+    </div>
   </footer>
+
 </body>
 </html>
