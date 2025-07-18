@@ -1,76 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Method CrossFit</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="style.css" rel="stylesheet">
-  </head>
-  <body class="bg-background text-foreground min-h-screen font-sans">
-    <header class="w-full p-4 shadow-md bg-primary text-white">
-      <nav class="container mx-auto flex justify-between items-center">
-        <h1 class="text-xl font-bold">Method CrossFit</h1>
-        <div class="space-x-4">
-          <a href="#quienes-somos" class="hover:underline">Quiénes somos</a>
-          <a href="#horarios" class="hover:underline">Horarios</a>
-          <a href="#planes" class="hover:underline">Planes</a>
-          <a href="#contacto" class="hover:underline">Contacto</a>
-        </div>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICARUS BOX – CrossTraining & Comunidad</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body class="bg-background text-foreground font-sans min-h-screen flex flex-col">
+  <!-- HEADER -->
+  <header class="bg-primary text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <span class="text-xl font-bold">ICARUS BOX</span>
+      <a href="https://wa.me/569XXXXXXXX" class="bg-accent text-primary px-4 py-2 rounded-lg font-semibold">Clase de prueba gratis</a>
+    </div>
+  </header>
 
-    <main class="container mx-auto px-4 py-12 space-y-16">
-      <section class="text-center space-y-4">
-        <h2 class="text-4xl font-bold text-primary">Transforma tu vida con nosotros</h2>
-        <p class="text-lg text-muted-foreground">Entrena en un ambiente desafiante y motivador.</p>
-        <a href="https://wa.me/56912345678" class="inline-block px-6 py-3 rounded-xl bg-primary text-white hover:bg-accent transition">
-          Escríbenos por WhatsApp
-        </a>
-      </section>
+  <!-- HERO -->
+  <section class="container mx-auto text-center py-12">
+    <h1 class="text-4xl font-bold">Eleva tu potencial. Comienza tu vuelo.</h1>
+    <p class="mt-4 text-lg text-muted-foreground">CrossTraining & Comunidad en Valparaíso</p>
+  </section>
 
-      <section id="quienes-somos" class="space-y-4">
-        <h3 class="text-2xl font-semibold">Quiénes somos</h3>
-        <p>Somos un box comprometido con tu progreso. Nuestro equipo de coaches certificados te ayudará a alcanzar tu máximo potencial físico y mental.</p>
-      </section>
+  <!-- QUIÉNES SOMOS -->
+  <section class="container mx-auto py-12" id="quienes-somos">
+    <h2 class="text-3xl font-semibold mb-4">Quiénes somos</h2>
+    <p>En ICARUS BOX combinamos disciplina, comunidad y pasión por el deporte. Nuestros coaches certificados te guían para superar tus límites.</p>
+  </section>
 
-      <section id="horarios" class="space-y-4">
-        <h3 class="text-2xl font-semibold">Horarios</h3>
-        <p>Clases disponibles de lunes a sábado, mañana y tarde.</p>
-        <ul class="list-disc list-inside">
-          <li>Lunes a Viernes: 7:00 / 8:00 / 13:00 / 18:00 / 19:00</li>
-          <li>Sábados: 10:00 / 11:00</li>
-        </ul>
-      </section>
+  <!-- UBICACIÓN -->
+  <section class="container mx-auto py-12" id="ubicacion">
+    <h2 class="text-3xl font-semibold mb-4">Ubicación</h2>
+    <p class="mb-4">📍 Yungay 2882, Piso 3, Valparaíso</p>
+    <div class="w-full h-64 rounded-lg overflow-hidden shadow-lg">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d441.8868752083775!2d-71.60636989777132!3d-33.04583898504788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e0c51bd1a8e9%3A0x4fe39dabca2ffaec!2sYungay%202882%2C%202340000%20Valpara%C3%ADso!5e0!3m2!1ses!2scl!4v1752868474749!5m2!1ses!2scl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
 
-      <section id="planes" class="space-y-4">
-        <h3 class="text-2xl font-semibold">Planes y precios</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <div class="border p-4 rounded-lg shadow-sm">
-            <h4 class="text-xl font-bold">Plan mensual</h4>
-            <p>$40.000 CLP</p>
-          </div>
-          <div class="border p-4 rounded-lg shadow-sm">
-            <h4 class="text-xl font-bold">Plan ilimitado</h4>
-            <p>$55.000 CLP</p>
-          </div>
-          <div class="border p-4 rounded-lg shadow-sm">
-            <h4 class="text-xl font-bold">Drop-in</h4>
-            <p>$6.000 CLP por clase</p>
-          </div>
-        </div>
-      </section>
 
-      <section id="contacto" class="space-y-4">
-        <h3 class="text-2xl font-semibold">Contacto</h3>
-        <p>📍 Dirección: Av. Ejemplo 1234, Santiago</p>
-        <p>📞 Teléfono: +56 9 1234 5678</p>
-        <p>📧 Email: contacto@methodcrossfit.cl</p>
-      </section>
-    </main>
+  <!-- HORARIOS -->
+  <section class="container mx-auto py-12" id="horarios">
+    <h2 class="text-3xl font-semibold mb-4">Horarios</h2>
+    <ul class="list-disc list-inside space-y-2 text-lg">
+      <li>Lunes a Viernes: 7:00 / 8:00 / 13:00 / 18:00 / 19:00</li>
+      <li>Sábados: 10:00 / 11:00</li>
+    </ul>
+  </section>
 
-    <footer class="w-full p-4 bg-muted text-center text-sm text-muted-foreground">
-      © 2025 Method CrossFit - Todos los derechos reservados.
-    </footer>
-  </body>
+  <!-- GALERÍA / REELS -->
+  <section class="container mx-auto py-12" id="galeria">
+    <h2 class="text-3xl font-semibold mb-4">Comunidad y WODs</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Reemplaza con tus propios iframes o imágenes -->
+      <iframe class="w-full h-64" src="https://www.instagram.com/reel/REPLACE/embed" frameborder="0" allowfullscreen></iframe>
+      <iframe class="w-full h-64" src="https://www.instagram.com/reel/REPLACE/embed" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="container mx-auto py-12" id="contacto">
+    <h2 class="text-3xl font-semibold mb-4">Contacto</h2>
+    <p>📞 WhatsApp: <a href="https://wa.me/569XXXXXXXX" class="text-primary">569 XXXXXXXX</a></p>
+    <p>📧 Email: contacto.icarusbox@gmail.com</p>
+    <p>📷 Instagram: <a href="https://www.instagram.com/cf.icarus/" class="text-primary">@cf.icarus</a></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-muted text-muted-foreground text-center py-4 mt-auto">
+    © 2025 ICARUS BOX – Todos los derechos reservados
+  </footer>
+</body>
 </html>
