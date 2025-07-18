@@ -254,10 +254,11 @@
     /* Grid de Instagram Mejorado */
     .social-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
+      justify-items: center;
     }
 
     .instagram-post {
@@ -268,6 +269,9 @@
       border: 2px solid rgba(0,220,255,0.2);
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
     }
 
     .instagram-post:hover {
@@ -391,6 +395,11 @@
       .social-grid { 
         grid-template-columns: 1fr; 
         gap: 1.5rem;
+        max-width: 350px;
+      }
+      
+      .instagram-post {
+        max-width: 100%;
       }
       
       .instagram-post iframe { 
@@ -422,7 +431,12 @@
     @media (min-width: 769px) and (max-width: 1024px) {
       .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
       .social-grid { 
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        max-width: 800px;
+      }
+      
+      .instagram-post {
+        max-width: 350px;
       }
     }
     
@@ -430,6 +444,11 @@
       .hero { height: 100vh; }
       .social-grid { 
         grid-template-columns: repeat(3, 1fr);
+        max-width: 1000px;
+      }
+      
+      .instagram-post {
+        max-width: 320px;
       }
     }
 
@@ -557,18 +576,6 @@
         <div class="instagram-post">
           <div class="post-overlay"><i class="fab fa-instagram"></i></div>
           <iframe src="https://www.instagram.com/reel/DKZqVtdOHj4/embed" allowtransparency="true" frameborder="0"></iframe>
-        </div>
-        <div class="instagram-post">
-          <div class="post-overlay"><i class="fab fa-instagram"></i></div>
-          <iframe src="https://www.instagram.com/p/CG0UU3lFPiX/embed" allowtransparency="true" frameborder="0"></iframe>
-        </div>
-        <div class="instagram-post">
-          <div class="post-overlay"><i class="fab fa-instagram"></i></div>
-          <iframe src="https://www.instagram.com/reel/CJ5bYmlh5Xk/embed" allowtransparency="true" frameborder="0"></iframe>
-        </div>
-        <div class="instagram-post">
-          <div class="post-overlay"><i class="fab fa-instagram"></i></div>
-          <iframe src="https://www.instagram.com/p/CIzNdrlBA1o/embed" allowtransparency="true" frameborder="0"></iframe>
         </div>
       </div>
 
