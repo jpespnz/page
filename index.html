@@ -164,13 +164,14 @@
     .program-card h3 { margin-bottom: 1rem; font-size: 1.3rem; color: var(--foreground); }
     .program-card p { opacity: .9; }
 
-    /* Comunidad - NUEVA SECCIÓN MEJORADA */
+    /* Comunidad - NUEVA SECCIÓN MEJORADA Y CENTRADA */
     .community {
       background: var(--muted); 
-      padding: 4rem 2rem;
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
       border-radius: 20px; 
       border: 1px solid rgba(0,220,255,0.1);
-      margin: 3rem 2rem; 
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -204,6 +205,13 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      position: relative;
+    }
+
+    .community-header h2::after {
+      content: ""; position: absolute; bottom: -10px; left: 50%;
+      transform: translateX(-50%); width: 80px; height: 3px;
+      background: var(--primary);
     }
 
     .community-subtitle {
@@ -392,6 +400,11 @@
       .hero-content h1 { font-size: clamp(2rem, 6vw, 3rem); }
       .hero-content p { font-size: clamp(1rem, 4vw, 1.5rem); }
       
+      .community {
+        margin: 0 1rem;
+        padding: 3rem 1rem;
+      }
+      
       .social-grid { 
         grid-template-columns: 1fr; 
         gap: 1.5rem;
@@ -430,6 +443,9 @@
     
     @media (min-width: 769px) and (max-width: 1024px) {
       .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+      .community {
+        margin: 0 2rem;
+      }
       .social-grid { 
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         max-width: 800px;
