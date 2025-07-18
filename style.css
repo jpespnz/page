@@ -13,13 +13,20 @@
     --radius: 0.5rem;
   }
 
+  /* Colores personalizados en Tailwind */
   body {
     @apply bg-background text-foreground;
   }
   a:hover {
     @apply text-accent;
   }
-  iframe {
-    @apply border border-accent rounded-xl;
+  .btn-primary {
+    @apply bg-primary text-primary-foreground py-2 px-6 rounded-xl font-semibold hover:bg-accent transition;
+  }
+  header, footer {
+    @apply bg-background text-foreground;
+  }
+  .card {
+    @apply bg-muted p-6 rounded-xl shadow-md;
   }
 }
