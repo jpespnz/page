@@ -14,6 +14,7 @@
             background: 'hsl(var(--background))',
             foreground: 'hsl(var(--foreground))',
             primary: 'hsl(var(--primary))',
+            'primary-foreground': 'hsl(var(--primary-foreground))',
             muted: 'hsl(var(--muted))',
             accent: 'hsl(var(--accent))'
           },
@@ -26,35 +27,35 @@
   <!-- 2) Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- 3) Variables HSL y base-styles en estilo procesado -->
+  <!-- 3) Variables HSL y estilos base procesados por Tailwind -->
   <style type="text/tailwindcss">
     @layer base {
       :root {
-        --background: 0 0% 0%;
-        --foreground: 0 0% 95%;
-        --primary: 184 100% 45%;
+        --background: 0 0% 0%;       /* negro */
+        --foreground: 0 0% 95%;      /* casi blanco */
+        --primary: 184 100% 45%;     /* calipso */
         --primary-foreground: 0 0% 100%;
-        --muted: 0 0% 15%;
-        --accent: 184 100% 75%;
+        --muted: 0 0% 15%;           /* gris oscuro */
+        --accent: 184 100% 75%;      /* calipso suave */
         --radius: 0.5rem;
       }
       body {
         @apply bg-background text-foreground;
       }
-      a:hover {
-        @apply text-accent;
-      }
-      iframe.instagram-frame {
-        @apply border border-accent rounded-xl w-full max-w-xs aspect-square;
+      header, footer {
+        @apply bg-background text-foreground;
       }
       .btn-primary {
         @apply bg-primary text-primary-foreground py-2 px-6 rounded-xl font-semibold hover:bg-accent transition;
       }
-      header, footer {
-        @apply bg-background text-foreground;
-      }
       .card {
         @apply bg-muted p-6 rounded-xl shadow-md;
+      }
+      iframe.instagram-frame {
+        @apply border border-accent rounded-xl w-full max-w-xs aspect-square;
+      }
+      a:hover {
+        @apply text-accent;
       }
     }
   </style>
@@ -62,7 +63,7 @@
 
 <body class="flex flex-col min-h-screen font-sans">
   <!-- HEADER -->
-  <header class="sticky top-0 bg-background/95 backdrop-blur-sm z-50">
+  <header class="sticky top-0 bg-background/90 backdrop-blur-sm z-50">
     <div class="container mx-auto flex items-center justify-between p-4">
       <div class="flex items-center space-x-4">
         <img src="logo-icarus.png" alt="Logo ICARUS" class="h-10"/>
@@ -89,7 +90,6 @@
   </section>
 
   <main class="container mx-auto px-6 py-16 space-y-24 flex-1">
-
     <!-- MISIÓN -->
     <section id="mision" class="text-center">
       <h2 class="text-3xl font-semibold mb-4">Nuestra Misión</h2>
@@ -139,16 +139,17 @@
     <section id="contacto" class="text-center">
       <h2 class="text-3xl font-semibold mb-4">Contacto</h2>
       <p>📞 WhatsApp: <a href="https://wa.me/569XXXXXXXX" class="text-primary hover:text-accent">569 XXXXXXXX</a></p>
-      <p>📧 Email: <a href="mailto:contacto.icarusbox@gmail.com" class="hover:text-accent">contacto@icarusbox.cl</a></p>
+      <p>📧 Email: <a href="mailto:contacto@icarusbox.cl" class="hover:text-accent">contacto@icarusbox.cl</a></p>
       <p>📷 Instagram: <a href="https://www.instagram.com/cf.icarus/" class="text-primary hover:text-accent">@cf.icarus</a></p>
     </section>
-
   </main>
+
+  <!-- SCRIPT PARA INSTAGRAM EMBEDS -->
+  <script async defer src="https://www.instagram.com/embed.js"></script>
 
   <!-- FOOTER -->
   <footer class="py-6 text-center">
     <p class="text-sm">© 2025 ICARUS BOX – Todos los derechos reservados</p>
   </footer>
-
 </body>
 </html>
