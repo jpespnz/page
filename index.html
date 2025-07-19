@@ -7,7 +7,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <style>
     /* Reset y variables de color */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
     :root {
       --background: hsl(0,0%,0%);
@@ -24,65 +24,44 @@
       color: var(--foreground);
       background: var(--background);
     }
+
     /* Header */
     header {
       background: rgba(0,0,0,0.95);
       backdrop-filter: blur(10px);
       padding: 1rem 0;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
+      position: fixed; width: 100%; top: 0; z-index: 1000;
       box-shadow: 0 2px 20px rgba(0,220,255,0.2);
       border-bottom: 1px solid rgba(0,220,255,0.1);
     }
     nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
       padding: 0 2rem;
     }
     .logo-container { display: flex; align-items: center; gap: 1rem; }
     .logo {
-      height: 50px;
-      width: 50px;
-      background: var(--primary);
-      border-radius: 50%;
+      height: 50px; width: 50px;
+      background: var(--primary); border-radius: 50%;
       box-shadow: 0 0 20px rgba(0,220,255,0.5);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
     }
     .logo img { width: 100%; height: 100%; object-fit: cover; }
     .brand-name {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: var(--primary);
+      font-size: 1.8rem; font-weight: bold; color: var(--primary);
     }
     .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-      align-items: center;
+      display: flex; list-style: none; gap: 2rem; align-items: center;
     }
     .nav-links a {
-      color: var(--foreground);
-      text-decoration: none;
-      transition: color .3s;
+      color: var(--foreground); text-decoration: none; transition: color .3s;
     }
     .nav-links a:hover { color: var(--accent); }
     .btn-primary {
-      background: var(--primary);
-      color: var(--primary-foreground);
-      padding: .75rem 1.5rem;
-      border-radius: var(--radius);
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0,220,255,0.3);
-      transition: all .3s;
+      background: var(--primary); color: var(--primary-foreground);
+      padding: .75rem 1.5rem; border-radius: var(--radius);
+      font-weight: 600; text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,220,255,0.3); transition: all .3s;
     }
     .btn-primary:hover {
       background: var(--accent);
@@ -90,55 +69,38 @@
       box-shadow: 0 6px 20px rgba(0,220,255,0.4);
     }
     .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--foreground);
-      font-size: 1.5rem;
-      cursor: pointer;
+      display: none; background: none; border: none;
+      color: var(--foreground); font-size: 1.5rem; cursor: pointer;
     }
+
     /* Hero */
     .hero {
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
       background:
         linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
         url('hero-bg.jpg') center/cover no-repeat;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: var(--foreground);
+      height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; color: var(--foreground);
     }
     .hero::before {
       content: "";
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: url('logo-translucido.png') center/50% no-repeat;
-      opacity: 0.40;
-      filter: blur(2px);
-      pointer-events: none;
-      z-index: 1;
+      opacity: 0.40; filter: blur(2px);
+      pointer-events: none; z-index: 1;
     }
     .hero-content { position: relative; z-index: 2; }
     .hero-content h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
+      font-size: 4rem; margin-bottom: 1rem;
       color: var(--primary);
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
     .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; }
     .cta-button {
-      display: inline-block;
-      background: var(--primary);
-      color: var(--primary-foreground);
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(0,220,255,0.3);
+      display: inline-block; background: var(--primary);
+      color: var(--primary-foreground); padding: 1rem 2rem;
+      border-radius: 50px; font-size: 1.2rem; font-weight: bold;
+      text-decoration: none; box-shadow: 0 4px 15px rgba(0,220,255,0.3);
       transition: all .3s;
     }
     .cta-button:hover {
@@ -146,43 +108,31 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0,220,255,0.4);
     }
-    /* Sections */
+
+    /* Secciones */
     .section {
-      padding: 5rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      padding: 5rem 2rem; max-width: 1200px; margin: 0 auto;
     }
     .section h2 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 3rem;
-      color: var(--foreground);
-      position: relative;
+      font-size: 2.5rem; text-align: center; margin-bottom: 3rem;
+      color: var(--foreground); position: relative;
     }
     .section h2::after {
-      content: "";
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
+      content: ""; position: absolute; bottom: -10px; left: 50%;
+      transform: translateX(-50%); width: 80px; height: 3px;
       background: var(--primary);
     }
+
+    /* Misión & Visión */
     .about-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-      gap: 3rem;
-      margin-top: 3rem;
+      gap: 3rem; margin-top: 3rem;
     }
     .about-card {
-      background: var(--muted);
-      padding: 2rem;
-      border-radius: var(--radius);
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,220,255,0.1);
-      transition: transform .3s;
-      border: 1px solid rgba(0,220,255,0.1);
+      background: var(--muted); padding: 2rem; border-radius: var(--radius);
+      text-align: center; box-shadow: 0 10px 30px rgba(0,220,255,0.1);
+      transition: transform .3s; border: 1px solid rgba(0,220,255,0.1);
     }
     .about-card:hover {
       transform: translateY(-10px);
@@ -190,13 +140,16 @@
     }
     .about-card h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; }
     .about-card p { line-height: 1.8; }
-    .programs-grid {
+
+    /* Horarios - NUEVA SECCIÓN */
+    .schedule-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
-    .program-card {
+
+    .schedule-card {
       background: var(--muted);
       padding: 2rem;
       border-radius: var(--radius);
@@ -206,7 +159,8 @@
       transition: all .3s;
       border: 1px solid rgba(0,220,255,0.1);
     }
-    .program-card::before {
+
+    .schedule-card::before {
       content: "";
       position: absolute;
       top: 0;
@@ -215,25 +169,377 @@
       height: 3px;
       background: var(--primary);
     }
+
+    .schedule-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,220,255,0.2);
+    }
+
+    .schedule-day {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .schedule-day i {
+      font-size: 1.1rem;
+    }
+
+    .schedule-times {
+      list-style: none;
+      padding: 0;
+    }
+
+    .schedule-times li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(0,220,255,0.1);
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+
+    .schedule-times li:last-child {
+      border-bottom: none;
+    }
+
+    .schedule-time {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .schedule-class {
+      color: var(--foreground);
+    }
+
+    .closed-day {
+      color: #666;
+      font-style: italic;
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+
+    /* Programas */
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 2rem; margin-top: 3rem;
+    }
+    .program-card {
+      background: var(--muted); padding: 2rem; border-radius: var(--radius);
+      text-align: center; position: relative; overflow: hidden;
+      transition: all .3s; border: 1px solid rgba(0,220,255,0.1);
+    }
+    .program-card::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--primary);
+    }
     .program-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 35px rgba(0,220,255,0.2);
     }
     .program-icon { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
-    .contact { padding: 4rem 2rem; text-align: center; }
+    .program-card h3 { margin-bottom: 1rem; font-size: 1.3rem; color: var(--foreground); }
+    .program-card p { opacity: .9; }
+
+    /* Comunidad - NUEVA SECCIÓN MEJORADA Y CENTRADA */
+    .community {
+      background: var(--muted); 
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 20px; 
+      border: 1px solid rgba(0,220,255,0.1);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .community::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+      background-size: 200% 100%;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 200% 0; }
+      50% { background-position: -200% 0; }
+    }
+
+    .community-header {
+      margin-bottom: 3rem;
+    }
+
+    .community-header h2 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+
+    .community-header h2::after {
+      content: ""; position: absolute; bottom: -10px; left: 50%;
+      transform: translateX(-50%); width: 80px; height: 3px;
+      background: var(--primary);
+    }
+
+    .community-subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Grid de Instagram Mejorado */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      justify-items: center;
+    }
+
+    .instagram-post {
+      position: relative;
+      background: var(--background);
+      border-radius: 15px;
+      overflow: hidden;
+      border: 2px solid rgba(0,220,255,0.2);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .instagram-post:hover {
+      border-color: var(--primary);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,220,255,0.3);
+    }
+
+    .instagram-post::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      z-index: 2;
+    }
+
+    .instagram-post iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      display: block;
+    }
+
+    .post-overlay {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: rgba(0,0,0,0.8);
+      color: var(--primary);
+      padding: 0.5rem;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      z-index: 3;
+      transition: all 0.3s ease;
+    }
+
+    .instagram-post:hover .post-overlay {
+      background: var(--primary);
+      color: var(--primary-foreground);
+      transform: scale(1.1);
+    }
+
+    .view-all-posts {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .btn-instagram {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCB045);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(131,58,180,0.3);
+    }
+
+    .btn-instagram:hover {
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 12px 35px rgba(131,58,180,0.4);
+    }
+
+    .btn-instagram i {
+      font-size: 1.3rem;
+    }
+
+    /* Contacto y Ubicación */
+    .contact {
+      padding: 4rem 2rem; text-align: center;
+    }
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      gap: 2rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 2rem; margin-top: 3rem;
     }
-    .contact-item { display: flex; align-items: center; justify-content: center; gap: 1rem; padding:1.5rem; background: var(--muted); border-radius: var(--radius); transition: all .3s; border:1px solid rgba(0,220,255,0.1); }
-    .contact-item:hover { background:rgba(0,220,255,0.1); transform: translateY(-3px); box-shadow:0 10px 30px rgba(0,220,255,0.2); }
-    .contact-item i { font-size:1.5rem; color:var(--primary); }
-    .contact-item a { color:var(--foreground); text-decoration:none; transition:color .3s; }
-    .contact-item a:hover { color:var(--accent); }
-    footer { background:var(--muted); text-align:center; padding:2rem 0; border-top:1px solid rgba(0,220,255,0.1); }
-    @media(max-width:768px){ .menu-toggle{display:block;} .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(0,0,0,0.95);backdrop-filter:blur(10px);padding:1rem;gap:1rem;} .nav-links.active{display:flex;} }
+    .contact-item {
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      padding: 1.5rem; background: var(--muted); border-radius: var(--radius);
+      transition: all .3s; border: 1px solid rgba(0,220,255,0.1);
+    }
+    .contact-item:hover {
+      background: rgba(0,220,255,0.1); transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,220,255,0.2);
+    }
+    .contact-item i { font-size: 1.5rem; color: var(--primary); }
+    .contact-item a { color: var(--foreground); text-decoration: none; transition: color .3s; }
+    .contact-item a:hover { color: var(--accent); }
+
+    /* Footer */
+    footer {
+      background: var(--muted); text-align: center; padding: 2rem 0;
+      border-top: 1px solid rgba(0,220,255,0.1);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        display: none; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: rgba(0,0,0,0.95); backdrop-filter: blur(10px);
+        padding: 1rem; gap: 1rem;
+      }
+      .nav-links.active { display: flex; }
+      .hero-content h1 { font-size: clamp(2rem, 6vw, 3rem); }
+      .hero-content p { font-size: clamp(1rem, 4vw, 1.5rem); }
+      
+      .community {
+        margin: 0 1rem;
+        padding: 3rem 1rem;
+      }
+      
+      .social-grid { 
+        grid-template-columns: 1fr; 
+        gap: 1.5rem;
+        max-width: 350px;
+      }
+      
+      .instagram-post {
+        max-width: 100%;
+      }
+      
+      .instagram-post iframe { 
+        height: 350px; 
+      }
+      
+      .instagram-stats {
+        gap: 1.5rem;
+        justify-content: space-around;
+      }
+      
+      .stat-item {
+        padding: 1rem;
+        flex: 1;
+        max-width: 120px;
+      }
+      
+      .community-header h2 {
+        font-size: 2.2rem;
+      }
+      
+      .community-subtitle {
+        font-size: 1rem;
+      }
+      
+      .contact-grid { grid-template-columns: 1fr; }
+      .schedule-grid { grid-template-columns: 1fr; }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+      .community {
+        margin: 0 2rem;
+      }
+      .social-grid { 
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        max-width: 800px;
+      }
+      
+      .instagram-post {
+        max-width: 350px;
+      }
+      
+      .schedule-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+      }
+    }
+    
+    @media (min-width: 1025px) {
+      .hero { height: 100vh; }
+      .social-grid { 
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1000px;
+      }
+      
+      .instagram-post {
+        max-width: 320px;
+      }
+      
+      .schedule-grid { 
+        grid-template-columns: repeat(3, 1fr); 
+      }
+    }
+
+    /* Animaciones adicionales */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
   </style>
 </head>
 <body>
@@ -242,7 +548,7 @@
       <div class="logo-container">
         <div class="logo"><img src="logo-icarus.png" alt="Logo ICARUS"></div>
         <div class="brand-name">ICARUS BOX</div>
-      </ul>
+      </div>
       <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#mision">Misión</a></li>
@@ -288,11 +594,142 @@
       </div>
     </section>
 
-    <!-- Horarios -->
-    <section id="horarios" class="section horarios">
-      <h2>Horarios</h2>
-      <p>Lunes a viernes: clases a las 08:00, 09:00, 10:00, 11:00, 17:00, 18:00, 19:00, 20:00 y 21:00 hrs.</p>
-      <p>Sábados: clases a las 10:00 y 11:00 hrs.</p>
+    <!-- Horarios - NUEVA SECCIÓN -->
+    <section id="horarios" class="section">
+      <h2>Nuestros Horarios</h2>
+      <div class="schedule-grid">
+        <div class="schedule-card">
+          <div class="schedule-day">
+            <i class="fas fa-calendar-day"></i>
+            Lunes
+          </div>
+          <ul class="schedule-times">
+            <li>
+              <span class="schedule-time">06:00</span>
+              <span class="schedule-class">WOD Matutino</span>
+            </li>
+            <li>
+              <span class="schedule-time">19:00</span>
+              <span class="schedule-class">CrossTraining</span>
+            </li>
+            <li>
+              <span class="schedule-time">20:00</span>
+              <span class="schedule-class">Personal Training</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="schedule-card">
+          <div class="schedule-day">
+            <i class="fas fa-calendar-day"></i>
+            Martes
+          </div>
+          <ul class="schedule-times">
+            <li>
+              <span class="schedule-time">06:00</span>
+              <span class="schedule-class">WOD Matutino</span>
+            </li>
+            <li>
+              <span class="schedule-time">18:30</span>
+              <span class="schedule-class">Funcional</span>
+            </li>
+            <li>
+              <span class="schedule-time">19:30</span>
+              <span class="schedule-class">CrossTraining</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="schedule-card">
+          <div class="schedule-day">
+            <i class="fas fa-calendar-day"></i>
+            Miércoles
+          </div>
+          <ul class="schedule-times">
+            <li>
+              <span class="schedule-time">06:00</span>
+              <span class="schedule-class">WOD Matutino</span>
+            </li>
+            <li>
+              <span class="schedule-time">19:00</span>
+              <span class="schedule-class">CrossTraining</span>
+            </li>
+            <li>
+              <span class="schedule-time">20:00</span>
+              <span class="schedule-class">Personal Training</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="schedule-card">
+          <div class="schedule-day">
+            <i class="fas fa-calendar-day"></i>
+            Jueves
+          </div>
+          <ul class="schedule-times">
+            <li>
+              <span class="schedule-time">06:00</span>
+              <span class="schedule-class">WOD Matutino</span>
+            </li>
+            <li>
+              <span class="schedule-time">18:30</span>
+              <span class="schedule-class">Funcional</span>
+            </li>
+            <li>
+              <span class="schedule-time">19:30</span>
+              <span class="schedule-class">CrossTraining</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="schedule-card">
+          <div class="schedule-day">
+            <i class="fas fa-calendar-day"></i>
+            Viernes
+          </div>
+          <ul class="schedule-times">
+            <li>
+              <span class="schedule-time">06:00</span>
+              <span class="schedule-class">WOD Matutino</span>
+            </li>
+            <li>
+              <span class="schedule-time">19:00</span>
+              <span class="schedule-class">CrossTraining</span>
+            </li>
+            <li>
+              <span class="schedule-time">20:00</span>
+              <span class="schedule-class">Personal Training</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="schedule-card">
+          <div class="schedule-day">
+            <i class="fas fa-calendar-day"></i>
+            Sábado
+          </div>
+          <ul class="schedule-times">
+            <li>
+              <span class="schedule-time">09:00</span>
+              <span class="schedule-class">WOD Fin de Semana</span>
+            </li>
+            <li>
+              <span class="schedule-time">10:30</span>
+              <span class="schedule-class">Clases Grupales</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="schedule-card">
+          <div class="schedule-day">
+            <i class="fas fa-calendar-day"></i>
+            Domingo
+          </div>
+          <div class="closed-day">
+            Descanso - Box Cerrado
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Programas -->
@@ -317,12 +754,13 @@
       </div>
     </section>
 
-    <!-- Comunidad -->
+    <!-- Comunidad MEJORADA -->
     <section id="comunidad" class="section community">
       <div class="community-header">
         <h2>Nuestra Comunidad</h2>
         <p class="community-subtitle">Somos más que un gimnasio, somos una familia comprometida con la excelencia y el crecimiento personal. Únete a nuestra comunidad en Instagram.</p>
-      </div>
+        
+
       <div class="social-grid">
         <div class="instagram-post">
           <div class="post-overlay"><i class="fab fa-instagram"></i></div>
@@ -337,51 +775,3 @@
           <iframe src="https://www.instagram.com/reel/DKZqVtdOHj4/embed" allowtransparency="true" frameborder="0"></iframe>
         </div>
       </div>
-      <div class="view-all-posts">
-        <a href="https://www.instagram.com/cf.icarus/" target="_blank" class="btn-instagram">
-          <i class="fab fa-instagram"></i>
-          Ver todos nuestros posts
-        </a>
-      </div>
-      <script async defer src="https://www.instagram.com/embed.js"></script>
-    </section>
-
-    <!-- Contacto & Ubicación -->
-    <section id="contacto" class="section contact">
-      <h2>Contacto & Ubicación</h2>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d836.103084800095!2d-71.60675443037094!3d-33.04560957418357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e0c51bd1a8e9%3A0x4fe39dabca2ffaec!2sYungay%202882%2C%202340000%20Valpara%C3%ADso!5e0!3m2!1ses!2scl!4v1752872942334!5m2!1ses!2scl"
-        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      <div class="contact-grid">
-        <div class="contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/569XXXXXXXX">+56 9 XXXXXXXX</a></div>
-        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:contacto.icarusbox@gmail.com">contacto.icarusbox@gmail.com</a></div>
-        <div class="contact-item"><i class="fab fa-instagram"></i><a href="https://www.instagram.com/cf.icarus/">@cf.icarus</a></div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 ICARUS BOX – Todos los derechos reservados. Eleva tu potencial.</p>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-        document.querySelector('.nav-links').classList.remove('active');
-      });
-    });
-    window.addEventListener('scroll', () => {
-      const hdr = document.querySelector('header');
-      hdr.style.background = window.scrollY > 100
-        ? 'rgba(0,0,0,0.98)'
-        : 'rgba(0,0,0,0.95)';
-    });
-  </script>
-</body>
-</html>
