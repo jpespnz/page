@@ -16,10 +16,16 @@
       --primary-foreground: hsl(0,0%,100%);
       --muted: hsl(0,0%,15%);
       --accent: hsl(184,100%,75%);
+      --gold: hsl(45,100%,70%);
+      --silver: hsl(0,0%,75%);
+      --bronze: hsl(20,85%,60%);
       --radius: 0.5rem;
+      --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
+      --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500);
+      --gradient-dark: linear-gradient(135deg, var(--background), var(--muted));
     }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       color: var(--foreground);
       background: var(--background);
@@ -54,18 +60,22 @@
       display: flex; list-style: none; gap: 2rem; align-items: center;
     }
     .nav-links a {
-      color: var(--foreground); text-decoration: none; transition: color .3s;
+      color: var(--foreground); text-decoration: none; transition: all .3s;
+      padding: 0.5rem 0; border-bottom: 2px solid transparent;
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover { 
+      color: var(--accent); 
+      border-bottom-color: var(--primary);
+    }
     .btn-primary {
-      background: var(--primary); color: var(--primary-foreground);
-      padding: .75rem 1.5rem; border-radius: var(--radius);
+      background: var(--gradient-primary); color: var(--primary-foreground);
+      padding: .75rem 1.5rem; border-radius: 50px;
       font-weight: 600; text-decoration: none;
       box-shadow: 0 4px 15px rgba(0,220,255,0.3); transition: all .3s;
+      border: none; cursor: pointer;
     }
     .btn-primary:hover {
-      background: var(--accent);
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.05);
       box-shadow: 0 6px 20px rgba(0,220,255,0.4);
     }
     .menu-toggle {
@@ -97,15 +107,14 @@
     }
     .hero-content p { font-size: 1.5rem; margin-bottom: 2rem; }
     .cta-button {
-      display: inline-block; background: var(--primary);
+      display: inline-block; background: var(--gradient-primary);
       color: var(--primary-foreground); padding: 1rem 2rem;
       border-radius: 50px; font-size: 1.2rem; font-weight: bold;
       text-decoration: none; box-shadow: 0 4px 15px rgba(0,220,255,0.3);
       transition: all .3s;
     }
     .cta-button:hover {
-      background: var(--accent);
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.05);
       box-shadow: 0 6px 20px rgba(0,220,255,0.4);
     }
 
@@ -120,7 +129,7 @@
     .section h2::after {
       content: ""; position: absolute; bottom: -10px; left: 50%;
       transform: translateX(-50%); width: 80px; height: 3px;
-      background: var(--primary);
+      background: var(--gradient-primary);
     }
 
     /* Misión & Visión */
@@ -133,6 +142,11 @@
       background: var(--muted); padding: 2rem; border-radius: var(--radius);
       text-align: center; box-shadow: 0 10px 30px rgba(0,220,255,0.1);
       transition: transform .3s; border: 1px solid rgba(0,220,255,0.1);
+      position: relative; overflow: hidden;
+    }
+    .about-card::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--gradient-primary);
     }
     .about-card:hover {
       transform: translateY(-10px);
@@ -140,6 +154,461 @@
     }
     .about-card h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; }
     .about-card p { line-height: 1.8; }
+
+    /* NUEVA SECCIÓN: Planes y Precios */
+    .pricing-section {
+      background: var(--muted);
+      padding: 5rem 2rem;
+      margin: 3rem 0;
+      border-radius: 20px;
+    }
+    
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .pricing-card {
+      background: var(--background);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid rgba(0,220,255,0.1);
+    }
+    
+    .pricing-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+    }
+    
+    .pricing-card.featured {
+      transform: scale(1.05);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(0,220,255,0.3);
+    }
+    
+    .pricing-card.featured::before {
+      background: var(--gradient-gold);
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,220,255,0.2);
+    }
+    
+    .pricing-card.featured:hover {
+      transform: translateY(-10px) scale(1.07);
+    }
+    
+    .plan-badge {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient-gold);
+      color: var(--background);
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .plan-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+    }
+    
+    .pricing-card.featured .plan-icon {
+      background: var(--gradient-gold);
+    }
+    
+    .plan-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: var(--foreground);
+    }
+    
+    .plan-price {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .pricing-card.featured .plan-price {
+      color: var(--gold);
+    }
+    
+    .plan-period {
+      color: var(--foreground);
+      opacity: 0.7;
+      margin-bottom: 2rem;
+    }
+    
+    .plan-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    
+    .plan-features li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .plan-features li:last-child {
+      border-bottom: none;
+    }
+    
+    .plan-features i {
+      color: var(--primary);
+      width: 20px;
+    }
+    
+    .plan-btn {
+      width: 100%;
+      background: var(--gradient-primary);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .pricing-card.featured .plan-btn {
+      background: var(--gradient-gold);
+    }
+    
+    .plan-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,220,255,0.4);
+    }
+
+    /* NUEVA SECCIÓN: Horarios */
+    .schedule-section {
+      background: var(--background);
+      padding: 5rem 2rem;
+    }
+    
+    .schedule-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .schedule-card {
+      background: var(--muted);
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid rgba(0,220,255,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .schedule-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+    }
+    
+    .schedule-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,220,255,0.2);
+    }
+    
+    .schedule-day {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .time-slots {
+      display: grid;
+      gap: 1rem;
+    }
+    
+    .time-slot {
+      background: var(--background);
+      padding: 1rem;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid rgba(0,220,255,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .time-slot:hover {
+      background: rgba(0,220,255,0.1);
+      border-color: var(--primary);
+    }
+    
+    .time-period {
+      font-weight: bold;
+      color: var(--accent);
+    }
+    
+    .time-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* NUEVA SECCIÓN: Tipos de Clases */
+    .classes-section {
+      background: var(--muted);
+      padding: 5rem 2rem;
+      margin: 3rem 0;
+      border-radius: 20px;
+    }
+    
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .class-card {
+      background: var(--background);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid rgba(0,220,255,0.1);
+    }
+    
+    .class-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(0,220,255,0.3);
+    }
+    
+    .class-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 1.5rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .class-card:nth-child(1) .class-icon { background: linear-gradient(135deg, #FF6B6B, #FF8E53); }
+    .class-card:nth-child(2) .class-icon { background: linear-gradient(135deg, #4ECDC4, #44A08D); }
+    .class-card:nth-child(3) .class-icon { background: linear-gradient(135deg, #A8E6CF, #88D8A3); }
+    .class-card:nth-child(4) .class-icon { background: linear-gradient(135deg, #FFD93D, #FF6B6B); }
+    
+    .class-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    
+    .class-description {
+      line-height: 1.6;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+    
+    .class-benefits {
+      list-style: none;
+      text-align: left;
+    }
+    
+    .class-benefits li {
+      padding: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .class-benefits i {
+      color: var(--primary);
+      width: 16px;
+    }
+
+    /* NUEVA SECCIÓN: Equipo ICARUS */
+    .team-section {
+      background: var(--background);
+      padding: 5rem 2rem;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .team-member {
+      background: var(--muted);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 2px solid rgba(0,220,255,0.1);
+    }
+    
+    .team-member::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-primary);
+    }
+    
+    .team-member.owner::before {
+      background: var(--gradient-gold);
+    }
+    
+    .team-member:hover {
+      transform: translateY(-10px);
+      border-color: var(--primary);
+      box-shadow: 0 20px 40px rgba(0,220,255,0.3);
+    }
+    
+    .member-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      background: var(--gradient-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      border: 4px solid rgba(0,220,255,0.3);
+    }
+    
+    .team-member.owner .member-photo {
+      background: var(--gradient-gold);
+      border-color: rgba(255,215,0,0.5);
+    }
+    
+    .member-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .member-role {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: var(--gradient-primary);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    .team-member.owner .member-role {
+      background: var(--gradient-gold);
+    }
+    
+    .member-name {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--foreground);
+    }
+    
+    .member-title {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .team-member.owner .member-title {
+      color: var(--gold);
+    }
+    
+    .member-description {
+      line-height: 1.6;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .member-specialties {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    
+    .specialty-tag {
+      background: rgba(0,220,255,0.1);
+      color: var(--primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(0,220,255,0.2);
+    }
 
     /* Programas */
     .programs-grid {
@@ -154,7 +623,7 @@
     }
     .program-card::before {
       content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--primary);
+      background: var(--gradient-primary);
     }
     .program-card:hover {
       transform: translateY(-5px);
@@ -164,7 +633,7 @@
     .program-card h3 { margin-bottom: 1rem; font-size: 1.3rem; color: var(--foreground); }
     .program-card p { opacity: .9; }
 
-    /* Comunidad - NUEVA SECCIÓN MEJORADA Y CENTRADA */
+    /* Comunidad - MEJORADA */
     .community {
       background: var(--muted); 
       padding: 5rem 2rem;
@@ -356,293 +825,4 @@
       .menu-toggle { display: block; }
       .nav-links {
         display: none; flex-direction: column;
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: rgba(0,0,0,0.95); backdrop-filter: blur(10px);
-        padding: 1rem; gap: 1rem;
-      }
-      .nav-links.active { display: flex; }
-      .hero-content h1 { font-size: clamp(2rem, 6vw, 3rem); }
-      .hero-content p { font-size: clamp(1rem, 4vw, 1.5rem); }
-      
-      .community {
-        margin: 0 1rem;
-        padding: 3rem 1rem;
-      }
-      
-      .social-grid { 
-        grid-template-columns: 1fr; 
-        gap: 1.5rem;
-        max-width: 350px;
-      }
-      
-      .instagram-post {
-        max-width: 100%;
-      }
-      
-      .instagram-post iframe { 
-        height: 350px; 
-      }
-      
-      .instagram-stats {
-        gap: 1.5rem;
-        justify-content: space-around;
-      }
-      
-      .stat-item {
-        padding: 1rem;
-        flex: 1;
-        max-width: 120px;
-      }
-      
-      .community-header h2 {
-        font-size: 2.2rem;
-      }
-      
-      .community-subtitle {
-        font-size: 1rem;
-      }
-      
-      .contact-grid { grid-template-columns: 1fr; }
-    }
-    
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-      .community {
-        margin: 0 2rem;
-      }
-      .social-grid { 
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        max-width: 800px;
-      }
-      
-      .instagram-post {
-        max-width: 350px;
-      }
-    }
-    
-    @media (min-width: 1025px) {
-      .hero { height: 100vh; }
-      .social-grid { 
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1000px;
-      }
-      
-      .instagram-post {
-        max-width: 320px;
-      }
-    }
-
-    /* Animaciones adicionales */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-in-up {
-      animation: fadeInUp 0.6s ease-out forwards;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <div class="logo-container">
-        <div class="logo"><img src="logo-icarus.png" alt="Logo ICARUS"></div>
-        <div class="brand-name">ICARUS BOX</div>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#mision">Misión</a></li>
-        <li><a href="#vision">Visión</a></li>
-        <li><a href="#programas">Programas</a></li>
-        <li><a href="#comunidad">Comunidad</a></li>
-        <li><a href="#contacto" class="btn-primary">Prueba Gratis</a></li>
-      </ul>
-      <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
-    </nav>
-  </header>
-
-  <main>
-    <!-- HERO -->
-    <section id="inicio" class="hero">
-      <div class="hero-content">
-        <h1>Eleva tu Potencial</h1>
-        <p>Comienza tu vuelo en Valparaíso</p>
-        <a href="https://wa.me/569XXXXXXXX" class="cta-button">Reservar Clase Gratuita</a>
-      </div>
-    </section>
-
-    <!-- Misión -->
-    <section id="mision" class="section">
-      <h2>Nuestra Misión</h2>
-      <div class="about-grid">
-        <div class="about-card">
-          <h3>Misión</h3>
-          <p>Proveer entrenamientos de CrossTraining de alta calidad, cultivando disciplina, resiliencia y un espíritu de comunidad que impulse a cada atleta a superar sus límites y transformar su vida.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Visión -->
-    <section id="vision" class="section">
-      <h2>Nuestra Visión</h2>
-      <div class="about-grid">
-        <div class="about-card">
-          <h3>Visión</h3>
-          <p>Ser el referente de CrossTraining en la región de Valparaíso, reconocido por nuestra pasión, excelencia en el coaching y la fuerza de nuestra comunidad unida, donde cada miembro alcanza su mejor versión.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Programas -->
-    <section id="programas" class="section">
-      <h2>Programas Destacados</h2>
-      <div class="programs-grid">
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-dumbbell"></i></div>
-          <h3>WOD Diarios</h3>
-          <p>Rutinas diarias diseñadas para todos los niveles.</p>
-        </div>
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-user-friends"></i></div>
-          <h3>Entrenamiento Personal</h3>
-          <p>Sesiones pensadas en ti.</p>
-        </div>
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-users"></i></div>
-          <h3>Clases Grupales</h3>
-          <p>Motivación en comunidad para dar siempre tu mejor esfuerzo.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Comunidad MEJORADA -->
-    <section id="comunidad" class="section community">
-      <div class="community-header">
-        <h2>Nuestra Comunidad</h2>
-        <p class="community-subtitle">Somos más que un gimnasio, somos una familia comprometida con la excelencia y el crecimiento personal. Únete a nuestra comunidad en Instagram.</p>
-        
-
-      <div class="social-grid">
-        <div class="instagram-post">
-          <div class="post-overlay"><i class="fab fa-instagram"></i></div>
-          <iframe src="https://www.instagram.com/p/DEqjjmlOArD/embed" allowtransparency="true" frameborder="0"></iframe>
-        </div>
-        <div class="instagram-post">
-          <div class="post-overlay"><i class="fab fa-instagram"></i></div>
-          <iframe src="https://www.instagram.com/reel/DLsHk6EuC6Y/embed" allowtransparency="true" frameborder="0"></iframe>
-        </div>
-        <div class="instagram-post">
-          <div class="post-overlay"><i class="fab fa-instagram"></i></div>
-          <iframe src="https://www.instagram.com/reel/DKZqVtdOHj4/embed" allowtransparency="true" frameborder="0"></iframe>
-        </div>
-      </div>
-
-      <div class="view-all-posts">
-        <a href="https://www.instagram.com/cf.icarus/" target="_blank" class="btn-instagram">
-          <i class="fab fa-instagram"></i>
-          Ver todos nuestros posts
-        </a>
-      </div>
-
-      <script async defer src="https://www.instagram.com/embed.js"></script>
-    </section>
-
-    <!-- Contacto & Ubicación -->
-    <section id="contacto" class="section contact">
-      <h2>Contacto & Ubicación</h2>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d836.103084800095!2d-71.60675443037094!3d-33.04560957418357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e0c51bd1a8e9%3A0x4fe39dabca2ffaec!2sYungay%202882%2C%202340000%20Valpara%C3%ADso!5e0!3m2!1ses!2scl!4v1752872942334!5m2!1ses!2scl"
-        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      <div class="contact-grid">
-        <div class="contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/569XXXXXXXX">+56 9 XXXXXXXX</a></div>
-        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:contacto.icarusbox@gmail.com">contacto.icarusbox@gmail.com</a></div>
-        <div class="contact-item"><i class="fab fa-instagram"></i><a href="https://www.instagram.com/cf.icarus/">@cf.icarus</a></div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 ICARUS BOX – Todos los derechos reservados. Eleva tu potencial.</p>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-    
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-        document.querySelector('.nav-links').classList.remove('active');
-      });
-    });
-    
-    window.addEventListener('scroll', () => {
-      const hdr = document.querySelector('header');
-      hdr.style.background = window.scrollY > 100
-        ? 'rgba(0,0,0,0.98)'
-        : 'rgba(0,0,0,0.95)';
-    });
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in-up');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    
-    document.querySelectorAll('.about-card, .program-card, .contact-item, .instagram-post').forEach(el => observer.observe(el));
-
-    // Animación de contadores
-    function animateCounters() {
-      const counters = document.querySelectorAll('.stat-number');
-      counters.forEach(counter => {
-        const target = counter.textContent;
-        const numericTarget = parseInt(target.replace(/\D/g, ''));
-        let current = 0;
-        const increment = numericTarget / 50;
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= numericTarget) {
-            counter.textContent = target;
-            clearInterval(timer);
-          } else {
-            if (target.includes('%')) {
-              counter.textContent = Math.floor(current) + '%';
-            } else if (target.includes('+')) {
-              counter.textContent = Math.floor(current) + '+';
-            } else {
-              counter.textContent = Math.floor(current);
-            }
-          }
-        }, 20);
-      });
-    }
-
-    // Observar la sección de estadísticas para animar cuando sea visible
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCounters();
-          statsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    const statsSection = document.querySelector('.instagram-stats');
-    if (statsSection) {
-      statsObserver.observe(statsSection);
-    }
-  </script>
-</body>
-</html>
+        position: absolute; top: 100%; left: 0; right:
