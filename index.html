@@ -16,11 +16,10 @@
       --primary-foreground: hsl(0,0%,100%);
       --muted: hsl(0,0%,15%);
       --accent: hsl(184,100%,75%);
-      --gradient: linear-gradient(135deg, var(--primary), var(--accent));
       --radius: 0.5rem;
     }
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       line-height: 1.6;
       color: var(--foreground);
       background: var(--background);
@@ -124,350 +123,6 @@
       background: var(--primary);
     }
 
-    /* Planes de Entrenamiento */
-    .plans {
-      background: var(--muted);
-      padding: 5rem 2rem;
-      margin: 2rem 0;
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .plans::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--gradient);
-      background-size: 200% 100%;
-      animation: shimmer 3s ease-in-out infinite;
-    }
-
-    @keyframes shimmer {
-      0%, 100% { background-position: 200% 0; }
-      50% { background-position: -200% 0; }
-    }
-
-    .plans-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .plan-card {
-      background: var(--background);
-      padding: 2.5rem;
-      border-radius: 15px;
-      text-align: center;
-      position: relative;
-      border: 2px solid rgba(0,220,255,0.2);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      overflow: hidden;
-    }
-
-    .plan-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gradient);
-    }
-
-    .plan-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      border-color: var(--primary);
-      box-shadow: 0 20px 40px rgba(0,220,255,0.3);
-    }
-
-    .plan-classes {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .plan-price {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: var(--foreground);
-      margin-bottom: 1rem;
-    }
-
-    .plan-matricula {
-      font-size: 0.9rem;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      opacity: 0.8;
-    }
-
-    .plan-features {
-      list-style: none;
-      margin: 1.5rem 0;
-      text-align: left;
-    }
-
-    .plan-features li {
-      padding: 0.5rem 0;
-      position: relative;
-      padding-left: 1.5rem;
-    }
-
-    .plan-features li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: bold;
-    }
-
-    .btn-plan {
-      background: var(--gradient);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      display: inline-block;
-      margin-top: 1rem;
-      width: 100%;
-      box-shadow: 0 8px 25px rgba(0,220,255,0.3);
-    }
-
-    .btn-plan:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 35px rgba(0,220,255,0.4);
-    }
-
-    /* Horarios */
-    .schedule {
-      background: var(--background);
-      padding: 4rem 2rem;
-    }
-
-    .schedule-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .schedule-day {
-      background: var(--muted);
-      padding: 2rem;
-      border-radius: 15px;
-      border: 1px solid rgba(0,220,255,0.1);
-      transition: all 0.3s ease;
-    }
-
-    .schedule-day:hover {
-      border-color: var(--primary);
-      box-shadow: 0 10px 30px rgba(0,220,255,0.2);
-      transform: translateY(-5px);
-    }
-
-    .day-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    .time-slot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.8rem 1rem;
-      margin: 0.5rem 0;
-      background: rgba(0,220,255,0.1);
-      border-radius: 8px;
-      border-left: 3px solid var(--primary);
-    }
-
-    .time-slot:hover {
-      background: rgba(0,220,255,0.15);
-    }
-
-    .time {
-      font-weight: 600;
-      color: var(--foreground);
-    }
-
-    .period {
-      font-size: 0.9rem;
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    /* Tipos de Clases */
-    .class-types {
-      background: var(--muted);
-      padding: 5rem 2rem;
-      margin: 2rem 0;
-      border-radius: 20px;
-    }
-
-    .types-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .type-card {
-      background: var(--background);
-      padding: 2.5rem;
-      border-radius: 15px;
-      text-align: center;
-      border: 2px solid rgba(0,220,255,0.2);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .type-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gradient);
-    }
-
-    .type-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--primary);
-      box-shadow: 0 15px 35px rgba(0,220,255,0.3);
-    }
-
-    .type-icon {
-      font-size: 3rem;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-    }
-
-    .type-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--foreground);
-      margin-bottom: 1rem;
-    }
-
-    .type-description {
-      line-height: 1.8;
-      opacity: 0.9;
-    }
-
-    /* Equipo ICARUS */
-    .team {
-      background: var(--background);
-      padding: 5rem 2rem;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 3rem;
-      margin-top: 3rem;
-    }
-
-    .team-member {
-      background: var(--muted);
-      padding: 2.5rem;
-      border-radius: 20px;
-      text-align: center;
-      border: 2px solid rgba(0,220,255,0.2);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .team-member::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--gradient);
-    }
-
-    .team-member:hover {
-      transform: translateY(-10px);
-      border-color: var(--primary);
-      box-shadow: 0 20px 40px rgba(0,220,255,0.3);
-    }
-
-    .member-photo {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: var(--gradient);
-      margin: 0 auto 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .member-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .member-name {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--foreground);
-      margin-bottom: 0.5rem;
-    }
-
-    .member-role {
-      font-size: 1rem;
-      color: var(--primary);
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .member-bio {
-      line-height: 1.6;
-      opacity: 0.9;
-      font-size: 0.95rem;
-    }
-
-    .member-specialties {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-    }
-
-    .specialty {
-      background: rgba(0,220,255,0.2);
-      color: var(--accent);
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 500;
-    }
-
     /* Misión & Visión */
     .about-grid {
       display: grid;
@@ -509,7 +164,7 @@
     .program-card h3 { margin-bottom: 1rem; font-size: 1.3rem; color: var(--foreground); }
     .program-card p { opacity: .9; }
 
-    /* Comunidad */
+    /* Comunidad - NUEVA SECCIÓN MEJORADA Y CENTRADA */
     .community {
       background: var(--muted); 
       padding: 5rem 2rem;
@@ -532,6 +187,11 @@
       background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
       background-size: 200% 100%;
       animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 200% 0; }
+      50% { background-position: -200% 0; }
     }
 
     .community-header {
@@ -563,6 +223,7 @@
       margin-right: auto;
     }
 
+    /* Grid de Instagram Mejorado */
     .social-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -703,25 +364,9 @@
       .hero-content h1 { font-size: clamp(2rem, 6vw, 3rem); }
       .hero-content p { font-size: clamp(1rem, 4vw, 1.5rem); }
       
-      .plans, .community, .class-types {
+      .community {
         margin: 0 1rem;
         padding: 3rem 1rem;
-      }
-      
-      .plans-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .schedule-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .types-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .team-grid {
-        grid-template-columns: 1fr;
       }
       
       .social-grid { 
@@ -738,6 +383,17 @@
         height: 350px; 
       }
       
+      .instagram-stats {
+        gap: 1.5rem;
+        justify-content: space-around;
+      }
+      
+      .stat-item {
+        padding: 1rem;
+        flex: 1;
+        max-width: 120px;
+      }
+      
       .community-header h2 {
         font-size: 2.2rem;
       }
@@ -751,7 +407,7 @@
     
     @media (min-width: 769px) and (max-width: 1024px) {
       .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-      .plans, .community, .class-types {
+      .community {
         margin: 0 2rem;
       }
       .social-grid { 
@@ -761,14 +417,6 @@
       
       .instagram-post {
         max-width: 350px;
-      }
-
-      .plans-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      }
-
-      .schedule-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       }
     }
     
@@ -799,15 +447,6 @@
     .fade-in-up {
       animation: fadeInUp 0.6s ease-out forwards;
     }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-
-    .pulse {
-      animation: pulse 2s ease-in-out infinite;
-    }
   </style>
 </head>
 <body>
@@ -819,10 +458,9 @@
       </div>
       <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#planes">Planes</a></li>
-        <li><a href="#horarios">Horarios</a></li>
-        <li><a href="#clases">Clases</a></li>
-        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#mision">Misión</a></li>
+        <li><a href="#vision">Visión</a></li>
+        <li><a href="#programas">Programas</a></li>
         <li><a href="#comunidad">Comunidad</a></li>
         <li><a href="#contacto" class="btn-primary">Prueba Gratis</a></li>
       </ul>
@@ -840,11 +478,171 @@
       </div>
     </section>
 
-    <!-- Planes de Entrenamiento -->
-    <section id="planes" class="section plans">
-      <h2>Planes de Entrenamiento 2025</h2>
-      <p class="community-subtitle">Elige el plan que mejor se adapte a tu ritmo de vida. Matrícula única de $10.000</p>
-      <div class="plans-grid">
-        <div class="plan-card">
-          <div class="plan-classes">
-            <i class="fas fa-dumbbell"></i
+    <!-- Misión -->
+    <section id="mision" class="section">
+      <h2>Nuestra Misión</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Misión</h3>
+          <p>Proveer entrenamientos de CrossTraining de alta calidad, cultivando disciplina, resiliencia y un espíritu de comunidad que impulse a cada atleta a superar sus límites y transformar su vida.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visión -->
+    <section id="vision" class="section">
+      <h2>Nuestra Visión</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Visión</h3>
+          <p>Ser el referente de CrossTraining en la región de Valparaíso, reconocido por nuestra pasión, excelencia en el coaching y la fuerza de nuestra comunidad unida, donde cada miembro alcanza su mejor versión.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programas -->
+    <section id="programas" class="section">
+      <h2>Programas Destacados</h2>
+      <div class="programs-grid">
+        <div class="program-card">
+          <div class="program-icon"><i class="fas fa-dumbbell"></i></div>
+          <h3>WOD Diarios</h3>
+          <p>Rutinas diarias diseñadas para todos los niveles.</p>
+        </div>
+        <div class="program-card">
+          <div class="program-icon"><i class="fas fa-user-friends"></i></div>
+          <h3>Entrenamiento Personal</h3>
+          <p>Sesiones pensadas en ti.</p>
+        </div>
+        <div class="program-card">
+          <div class="program-icon"><i class="fas fa-users"></i></div>
+          <h3>Clases Grupales</h3>
+          <p>Motivación en comunidad para dar siempre tu mejor esfuerzo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comunidad MEJORADA -->
+    <section id="comunidad" class="section community">
+      <div class="community-header">
+        <h2>Nuestra Comunidad</h2>
+        <p class="community-subtitle">Somos más que un gimnasio, somos una familia comprometida con la excelencia y el crecimiento personal. Únete a nuestra comunidad en Instagram.</p>
+        
+
+      <div class="social-grid">
+        <div class="instagram-post">
+          <div class="post-overlay"><i class="fab fa-instagram"></i></div>
+          <iframe src="https://www.instagram.com/p/DEqjjmlOArD/embed" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+        <div class="instagram-post">
+          <div class="post-overlay"><i class="fab fa-instagram"></i></div>
+          <iframe src="https://www.instagram.com/reel/DLsHk6EuC6Y/embed" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+        <div class="instagram-post">
+          <div class="post-overlay"><i class="fab fa-instagram"></i></div>
+          <iframe src="https://www.instagram.com/reel/DKZqVtdOHj4/embed" allowtransparency="true" frameborder="0"></iframe>
+        </div>
+      </div>
+
+      <div class="view-all-posts">
+        <a href="https://www.instagram.com/cf.icarus/" target="_blank" class="btn-instagram">
+          <i class="fab fa-instagram"></i>
+          Ver todos nuestros posts
+        </a>
+      </div>
+
+      <script async defer src="https://www.instagram.com/embed.js"></script>
+    </section>
+
+    <!-- Contacto & Ubicación -->
+    <section id="contacto" class="section contact">
+      <h2>Contacto & Ubicación</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d836.103084800095!2d-71.60675443037094!3d-33.04560957418357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9689e0c51bd1a8e9%3A0x4fe39dabca2ffaec!2sYungay%202882%2C%202340000%20Valpara%C3%ADso!5e0!3m2!1ses!2scl!4v1752872942334!5m2!1ses!2scl"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <div class="contact-grid">
+        <div class="contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/569XXXXXXXX">+56 9 XXXXXXXX</a></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:contacto.icarusbox@gmail.com">contacto.icarusbox@gmail.com</a></div>
+        <div class="contact-item"><i class="fab fa-instagram"></i><a href="https://www.instagram.com/cf.icarus/">@cf.icarus</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ICARUS BOX – Todos los derechos reservados. Eleva tu potencial.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+    
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('.nav-links').classList.remove('active');
+      });
+    });
+    
+    window.addEventListener('scroll', () => {
+      const hdr = document.querySelector('header');
+      hdr.style.background = window.scrollY > 100
+        ? 'rgba(0,0,0,0.98)'
+        : 'rgba(0,0,0,0.95)';
+    });
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-up');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    document.querySelectorAll('.about-card, .program-card, .contact-item, .instagram-post').forEach(el => observer.observe(el));
+
+    // Animación de contadores
+    function animateCounters() {
+      const counters = document.querySelectorAll('.stat-number');
+      counters.forEach(counter => {
+        const target = counter.textContent;
+        const numericTarget = parseInt(target.replace(/\D/g, ''));
+        let current = 0;
+        const increment = numericTarget / 50;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= numericTarget) {
+            counter.textContent = target;
+            clearInterval(timer);
+          } else {
+            if (target.includes('%')) {
+              counter.textContent = Math.floor(current) + '%';
+            } else if (target.includes('+')) {
+              counter.textContent = Math.floor(current) + '+';
+            } else {
+              counter.textContent = Math.floor(current);
+            }
+          }
+        }, 20);
+      });
+    }
+
+    // Observar la sección de estadísticas para animar cuando sea visible
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.instagram-stats');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
+  </script>
+</body>
+</html>
