@@ -6,8 +6,97 @@
   <title>ICARUS BOX - Eleva tu Potencial</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <style>
-    /* (estilos originales sin cambios) */
-    /* ... todo tu CSS se mantiene igual ... */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --background: hsl(0,0%,0%);
+      --foreground: hsl(0,0%,95%);
+      --primary: hsl(184,100%,45%);
+      --primary-foreground: hsl(0,0%,100%);
+      --muted: hsl(0,0%,15%);
+      --accent: hsl(184,100%,75%);
+      --radius: 0.5rem;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--foreground);
+      background: var(--background);
+    }
+    header {
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      position: fixed; width: 100%; top: 0; z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0,220,255,0.2);
+      border-bottom: 1px solid rgba(0,220,255,0.1);
+    }
+    nav {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 2rem;
+    }
+    .logo-container { display: flex; align-items: center; gap: 1rem; }
+    .logo {
+      height: 50px; width: 50px;
+      background: var(--primary); border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0,220,255,0.5);
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
+    }
+    .logo img { width: 100%; height: 100%; object-fit: cover; }
+    .brand-name {
+      font-size: 1.8rem; font-weight: bold; color: var(--primary);
+    }
+    .nav-links {
+      display: flex; list-style: none; gap: 2rem; align-items: center;
+    }
+    .nav-links a {
+      color: var(--foreground); text-decoration: none; transition: color .3s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .btn-primary {
+      background: var(--primary); color: var(--primary-foreground);
+      padding: .75rem 1.5rem; border-radius: var(--radius);
+      font-weight: 600; text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0,220,255,0.3); transition: all .3s;
+    }
+    .btn-primary:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,220,255,0.4);
+    }
+    .menu-toggle {
+      display: none; background: none; border: none;
+      color: var(--foreground); font-size: 1.5rem; cursor: pointer;
+    }
+    .section {
+      padding: 5rem 2rem; max-width: 1200px; margin: 0 auto;
+    }
+    .section h2 {
+      font-size: 2.5rem; text-align: center; margin-bottom: 3rem;
+      color: var(--foreground); position: relative;
+    }
+    .section h2::after {
+      content: ""; position: absolute; bottom: -10px; left: 50%;
+      transform: translateX(-50%); width: 80px; height: 3px;
+      background: var(--primary);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap: 3rem; margin-top: 3rem;
+    }
+    .about-card {
+      background: var(--muted); padding: 2rem; border-radius: var(--radius);
+      text-align: center; box-shadow: 0 10px 30px rgba(0,220,255,0.1);
+      transition: transform .3s; border: 1px solid rgba(0,220,255,0.1);
+    }
+    .about-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,220,255,0.2);
+    }
+    .about-card h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 1rem; }
+    .about-card p { line-height: 1.8; }
   </style>
 </head>
 <body>
@@ -23,7 +112,6 @@
         <li><a href="#vision">Visión</a></li>
         <li><a href="#horarios">Horarios</a></li>
         <li><a href="#programas">Programas</a></li>
-        <li><a href="#comunidad">Comunidad</a></li>
         <li><a href="#contacto" class="btn-primary">Prueba Gratis</a></li>
       </ul>
       <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
@@ -31,16 +119,10 @@
   </header>
 
   <main>
-    <!-- HERO -->
-    <section id="inicio" class="hero">
-      <div class="hero-content">
-        <h1>Eleva tu Potencial</h1>
-        <p>Comienza tu vuelo en Valparaíso</p>
-        <a href="https://wa.me/569XXXXXXXX" class="cta-button">Reservar Clase Gratuita</a>
-      </div>
+    <section id="inicio" class="section">
+      <h2>Bienvenido a ICARUS BOX</h2>
     </section>
 
-    <!-- Misión -->
     <section id="mision" class="section">
       <h2>Nuestra Misión</h2>
       <div class="about-grid">
@@ -51,7 +133,6 @@
       </div>
     </section>
 
-    <!-- Visión -->
     <section id="vision" class="section">
       <h2>Nuestra Visión</h2>
       <div class="about-grid">
@@ -62,7 +143,6 @@
       </div>
     </section>
 
-    <!-- Horarios -->
     <section id="horarios" class="section">
       <h2>Horarios</h2>
       <div class="about-grid">
@@ -70,41 +150,54 @@
           <h3>Lunes a Viernes</h3>
           <p>Clases a las 08:00, 09:00, 10:00, 11:00, 17:00, 18:00, 19:00, 20:00 y 21:00 hrs.</p>
         </div>
-        <div class="about-card">
-          <h3>Sábado</h3>
-          <p>Clases a las 09:00 y 10:00 hrs.</p>
-        </div>
-        <div class="about-card">
-          <h3>Domingo</h3>
-          <p>Box cerrado.</p>
-        </div>
       </div>
     </section>
 
-    <!-- Programas -->
     <section id="programas" class="section">
       <h2>Programas Destacados</h2>
-      <div class="programs-grid">
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-dumbbell"></i></div>
+      <div class="about-grid">
+        <div class="about-card">
           <h3>WOD Diarios</h3>
           <p>Rutinas diarias diseñadas para todos los niveles.</p>
         </div>
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-user-friends"></i></div>
+        <div class="about-card">
           <h3>Entrenamiento Personal</h3>
           <p>Sesiones pensadas en ti.</p>
         </div>
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-users"></i></div>
+        <div class="about-card">
           <h3>Clases Grupales</h3>
           <p>Motivación en comunidad para dar siempre tu mejor esfuerzo.</p>
         </div>
       </div>
     </section>
 
-    <!-- (continúan secciones: Comunidad, Contacto, Footer, JS) -->
-    <!-- Todo el resto de tu HTML se mantiene igual -->
+    <section id="contacto" class="section">
+      <h2>Contacto</h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Ubicación</h3>
+          <p>Yungay 2882, Valparaíso</p>
+        </div>
+        <div class="about-card">
+          <h3>Email</h3>
+          <p>contacto.icarusbox@gmail.com</p>
+        </div>
+        <div class="about-card">
+          <h3>Instagram</h3>
+          <p>@cf.icarus</p>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <p>&copy; 2025 ICARUS BOX – Todos los derechos reservados. Eleva tu potencial.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
