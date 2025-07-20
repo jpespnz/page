@@ -226,27 +226,23 @@
     }
 
     /* Programas */
-    .programs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-      gap: 2rem; margin-top: 3rem;
-    }
-    .program-card {
-      background: var(--muted); padding: 2rem; border-radius: var(--radius);
-      text-align: center; position: relative; overflow: hidden;
-      transition: all .3s; border: 1px solid rgba(0,220,255,0.1);
-    }
-    .program-card::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--primary);
-    }
-    .program-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0,220,255,0.2);
-    }
-    .program-icon { font-size: 3rem; color: var(--primary); margin-bottom: 1rem; }
-    .program-card h3 { margin-bottom: 1rem; font-size: 1.3rem; color: var(--foreground); }
-    .program-card p { opacity: .9; }
+/* Layout 2x2 para programas destacados */
+.programs-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 columnas */
+  grid-template-rows: 1fr 1fr;    /* 2 filas */
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+  .programs-2x2 {
+    grid-template-columns: 1fr; /* 1 columna en móviles */
+    grid-template-rows: auto;
+  }
+}
 
     /* Comunidad - NUEVA SECCIÓN MEJORADA Y CENTRADA */
     .community {
@@ -834,26 +830,31 @@
       </div>
     </section>
     <!-- Programas -->
-    <section id="programas" class="section">
-      <h2>Programas Destacados</h2>
-      <div class="programs-grid">
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-dumbbell"></i></div>
-          <h3>WOD Diarios</h3>
-          <p>Rutinas diarias diseñadas para todos los niveles.</p>
-        </div>
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-user-friends"></i></div>
-          <h3>Entrenamiento Personal</h3>
-          <p>Sesiones pensadas en ti.</p>
-        </div>
-        <div class="program-card">
-          <div class="program-icon"><i class="fas fa-users"></i></div>
-          <h3>Clases Grupales</h3>
-          <p>Motivación en comunidad para dar siempre tu mejor esfuerzo.</p>
-        </div>
-      </div>
-    </section>
+<section id="programas" class="section">
+  <h2>Programas Destacados</h2>
+  <div class="programs-grid programs-2x2">
+    <div class="program-card">
+      <div class="program-icon"><i class="fas fa-dumbbell"></i></div>
+      <h3>WOD Diarios</h3>
+      <p>Rutinas diarias diseñadas para todos los niveles.</p>
+    </div>
+    <div class="program-card">
+      <div class="program-icon"><i class="fas fa-user-friends"></i></div>
+      <h3>Entrenamiento Personal</h3>
+      <p>Sesiones pensadas en ti.</p>
+    </div>
+    <div class="program-card">
+      <div class="program-icon"><i class="fas fa-users"></i></div>
+      <h3>Clases Grupales</h3>
+      <p>Motivación en comunidad para dar siempre tu mejor esfuerzo.</p>
+    </div>
+    <div class="program-card">
+      <div class="program-icon"><i class="fas fa-heart-pulse"></i></div>
+      <h3>Nutrición Deportiva</h3>
+      <p>Planes alimenticios personalizados para potenciar tu rendimiento.</p>
+    </div>
+  </div>
+</section>
 
     <!-- Comunidad MEJORADA -->
     <section id="comunidad" class="section community">
