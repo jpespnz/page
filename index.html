@@ -238,24 +238,37 @@
 
 /* Estilos para las tarjetas/cuadros de programas */
 .program-card {
-  background: var(--muted);                       /* igual que .about-card */
-  border: 1px solid rgba(0,220,255,0.1);          /* mismo borde tenue */
-  box-shadow: 0 10px 30px rgba(0,220,255,0.1);     /* igual que .about-card */
-  color: var(--foreground);                       /* texto claro */
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #f0f0f0;
+  position: relative;
+  overflow: hidden;
 }
 
 .program-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0,220,255,0.2);
-  border-color: var(--accent);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border-color: #ff6b6b;
 }
 
 .program-icon {
-  background: var(--primary);
+  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: transform 0.3s ease;
 }
 
 .program-card:hover .program-icon {
-  background: var(--accent);
+  transform: scale(1.1);
 }
 
 .program-icon i {
