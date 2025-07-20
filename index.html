@@ -225,108 +225,109 @@
       opacity: 0.7;
     }
 
-    /* Programas */
-/* Layout 2x2 para programas destacados */
-.programs-2x2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 30px;
-  max-width: 900px;
-  margin: 0 auto;
-}
+    /* Programas - ACTUALIZADO CON COLORES DEL TEMA */
+    .programs-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-/* Estilos para las tarjetas/cuadros de programas */
-.program-card {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  padding: 30px 20px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid #f0f0f0;
-  position: relative;
-  overflow: hidden;
-}
+    .program-card {
+      background: var(--muted);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,220,255,0.1);
+      padding: 30px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0,220,255,0.1);
+      position: relative;
+      overflow: hidden;
+    }
 
-.program-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-  border-color: #ff6b6b;
-}
+    .program-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
 
-.program-icon {
-  background: linear-gradient(135deg, #ff6b6b, #ff8e53);
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  transition: transform 0.3s ease;
-}
+    .program-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,220,255,0.2);
+      border-color: var(--primary);
+    }
 
-.program-card:hover .program-icon {
-  transform: scale(1.1);
-}
+    .program-card:hover::before {
+      opacity: 1;
+    }
 
-.program-icon i {
-  font-size: 2em;
-  color: white;
-}
+    .program-icon {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,220,255,0.3);
+    }
 
-.program-card h3 {
-  color: #333;
-  font-size: 1.4em;
-  margin: 0 0 15px 0;
-  font-weight: 700;
-}
+    .program-card:hover .program-icon {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,220,255,0.4);
+    }
 
-.program-card p {
-  color: #666;
-  line-height: 1.6;
-  margin: 0;
-  font-size: 0.95em;
-}
+    .program-icon i {
+      font-size: 2em;
+      color: var(--primary-foreground);
+    }
 
-.program-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #ff6b6b, #ff8e53, #4ecdc4, #45b7d1);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
+    .program-card h3 {
+      color: var(--primary);
+      font-size: 1.4em;
+      margin: 0 0 15px 0;
+      font-weight: 700;
+    }
 
-.program-card:hover::before {
-  opacity: 1;
-}
+    .program-card p {
+      color: var(--foreground);
+      line-height: 1.6;
+      margin: 0;
+      font-size: 0.95em;
+      opacity: 0.9;
+    }
 
-@media (max-width: 768px) {
-  .programs-2x2 {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 20px;
-    max-width: 400px;
-  }
-  
-  .program-card {
-    padding: 25px 15px;
-  }
-  
-  .program-icon {
-    width: 70px;
-    height: 70px;
-  }
-  
-  .program-icon i {
-    font-size: 1.8em;
-  }
-}
+    @media (max-width: 768px) {
+      .programs-2x2 {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 20px;
+        max-width: 400px;
+      }
+      
+      .program-card {
+        padding: 25px 15px;
+      }
+      
+      .program-icon {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .program-icon i {
+        font-size: 1.8em;
+      }
+    }
 
     /* Comunidad - NUEVA SECCIÓN MEJORADA Y CENTRADA */
     .community {
@@ -674,7 +675,7 @@
       </div>
     </section>
 
-    <!-- Horarios - NUEVA SECCIÓN -->
+    <!-- Horarios -->
     <section id="horarios" class="section">
       <h2>Nuestros Horarios</h2>
       <div class="schedule-grid">
@@ -811,154 +812,3 @@
              <span class="schedule-class">CrossTraining</span>
             </li>
           </ul>
-        </div>
-
-        <div class="schedule-card">
-          <div class="schedule-day">
-            <i class="fas fa-calendar-day"></i>
-            Jueves
-          </div>
-          <ul class="schedule-times">
-            <li>
-              <span class="schedule-time">08:00</span>
-              <span class="schedule-class">CrossTraining</span>
-            </li>
-             <li>
-              <span class="schedule-time">09:00</span>
-               <span class="schedule-class">CrossTraining</span>
-            </li>
-             <li>
-              <span class="schedule-time">10:00</span>
-               <span class="schedule-class">CrossTraining</span>
-            </li>
-            <li>
-              <span class="schedule-time">17:00</span>
-              <span class="schedule-class">CrossTraining</span>
-            </li>
-            <li>
-              <span class="schedule-time">18:00</span>
-              <span class="schedule-class">CrossTraining</span>
-            </li>
-            <li>
-              <span class="schedule-time">19:00</span>
-              <span class="schedule-class">Gymnastic</span>
-            </li>
-            <li>
-              <span class="schedule-time">20:00</span>
-             <span class="schedule-class">Cardioparty</span>
-            </li>
-            <li>
-              <span class="schedule-time">21:00</span>
-             <span class="schedule-class">Cardioparty</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="schedule-card">
-          <div class="schedule-day">
-            <i class="fas fa-calendar-day"></i>
-            Viernes
-          </div>
-          <ul class="schedule-times">
-            <li>
-              <span class="schedule-time">08:00</span>
-              <span class="schedule-class">CrossTraining</span>
-            </li>
-             <li>
-              <span class="schedule-time">09:00</span>
-               <span class="schedule-class">CrossTraining</span>
-            </li>
-             <li>
-              <span class="schedule-time">10:00</span>
-               <span class="schedule-class">CrossTraining</span>
-            </li>
-            <li>
-              <span class="schedule-time">17:00</span>
-              <span class="schedule-class">CrossTraining</span>
-            </li>
-            <li>
-              <span class="schedule-time">18:00</span>
-              <span class="schedule-class">Cardioparty</span>
-            </li>
-            <li>
-              <span class="schedule-time">19:00</span>
-              <span class="schedule-class">CrossTraining</span>
-            </li>
-            <li>
-              <span class="schedule-time">20:00</span>
-             <span class="schedule-class">CrossTraining</span>
-            </li>
-            <li>
-              <span class="schedule-time">21:00</span>
-             <span class="schedule-class">CrossTraining</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="schedule-card">
-          <div class="schedule-day">
-            <i class="fas fa-calendar-day"></i>
-            Sábado
-          </div>
-          <ul class="schedule-times">
-            <li>
-              <span class="schedule-time">10:00</span>
-              <span class="schedule-class">CrossTraining</span>
-            </li>
-            <li>
-              <span class="schedule-time">11:00</span>
-              <span class="schedule-class">CrossTraining</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <!-- Programas -->
-<!-- Programas -->
-<section id="programas" class="section">
-  <h2>Programas Destacados</h2>
-  <div class="programs-grid programs-2x2">
-    <div class="program-card">
-      <div class="program-icon"><i class="fas fa-dumbbell"></i></div>
-      <h3>WOD Diarios</h3>
-      <p>Rutinas diarias diseñadas para todos los niveles.</p>
-    </div>
-    <div class="program-card">
-      <div class="program-icon"><i class="fas fa-user-friends"></i></div>
-      <h3>Entrenamiento Personal</h3>
-      <p>Sesiones pensadas en ti.</p>
-    </div>
-    <div class="program-card">
-      <div class="program-icon"><i class="fas fa-users"></i></div>
-      <h3>Clases Grupales</h3>
-      <p>Motivación en comunidad para dar siempre tu mejor esfuerzo.</p>
-    </div>
-    <div class="program-card">
-      <div class="program-icon"><i class="fas fa-heart-pulse"></i></div>
-      <h3>Nutrición Deportiva</h3>
-      <p>Planes alimenticios personalizados para potenciar tu rendimiento.</p>
-    </div>
-  </div>
-</section>
-
-    <!-- Comunidad MEJORADA -->
-    <section id="comunidad" class="section community">
-      <div class="community-header">
-        <h2>Nuestra Comunidad</h2>
-        <p class="community-subtitle">Somos más que un gimnasio, somos una familia comprometida con la excelencia y el crecimiento personal. Únete a nuestra comunidad en Instagram.</p>
-        
-
-      <div class="social-grid">
-        <div class="instagram-post">
-          <div class="post-overlay"><i class="fab fa-instagram"></i></div>
-          <iframe src="https://www.instagram.com/p/DEqjjmlOArD/embed" allowtransparency="true" frameborder="0"></iframe>
-        </div>
-        <div class="instagram-post">
-          <div class="post-overlay"><i class="fab fa-instagram"></i></div>
-          <iframe src="https://www.instagram.com/reel/DLsHk6EuC6Y/embed" allowtransparency="true" frameborder="0"></iframe>
-        </div>
-        <div class="instagram-post">
-          <div class="post-overlay"><i class="fab fa-instagram"></i></div>
-          <iframe src="https://www.instagram.com/reel/DKZqVtdOHj4/embed" allowtransparency="true" frameborder="0"></iframe>
-        </div>
-      </div>
